@@ -1,0 +1,37 @@
+feature,family,min,median,max,formula,rf_importance
+instances_per_class,Dimensão,170.0,1500.0,1500.0,n_instances / n_classes,0.00721455617545684
+n_instances,Dimensão,340.0,3000.0,3000.0,contagem direta de instâncias,0.005092925868302292
+log_instances,Dimensão,2.531478917042255,3.4771212547196626,3.4771212547196626,log10(n_instances),0.003667889920725599
+n_classes,Dimensão,2.0,2.0,6.0,contagem direta de classes,0.0010305596743020264
+class_entropy,Balanceamento,0.4689955935892812,0.8902589074900856,2.5262774832024637,"-soma_c p_c * log2(p_c), bits",0.05134977929670965
+majority_pct,Balanceamento,0.2453333333333333,0.713,0.9,contagem_classe_majoritaria / n_instances,0.04276506119510506
+imbalance_ratio,Balanceamento,1.0134228187919463,2.818796641791045,9.0,contagem_classe_majoritaria / contagem_classe_minoritaria,0.025243234778062288
+minority_pct,Balanceamento,0.1,0.22399999999999995,0.4966666666666666,contagem_classe_minoritaria / n_instances,0.015635157784794428
+hapax_ratio,Lexical,0.3720025923525599,0.6822962199637913,0.77041892277002,(nº tipos com freq==1) / vocab_size,0.04634618932568668
+vocab_per_instance,Lexical,0.5143333333333333,3.8365,8.267,vocab_size / n_instances,0.028983353808115262
+type_token_ratio,Lexical,0.058042431537767,0.20378902429232126,0.3983637733682586,vocab_size / total_tokens,0.024971091358292334
+vocab_size,Lexical,1543.0,9287.5,24801.0,"nº de tokens únicos (lowercased, split por espaço)",0.021477006265289846
+log_vocab_size,Lexical,3.188365926063148,3.967896635967862,4.394469192347434,log10(vocab_size),0.020593732022700227
+std_doc_len_words,Lexical,3.318348719200896,10.945437069757856,46.59398324414383,desvio-padrão de nº de palavras por documento,0.01819185606899814
+mean_word_len,Lexical,3.979686902355063,4.530109199801947,5.621593145230016,média do comprimento (chars) dos tokens do dataset,0.01532934029552654
+mean_doc_len_words,Lexical,8.861333333333333,19.294666666666664,51.07566666666666,média de nº de palavras por documento,0.012283118047167004
+mean_doc_len_chars,Lexical,47.31133333333333,105.98683333333332,295.05,média de nº de caracteres por documento,0.011045602841430389
+pct_docs_with_profanity,Domínio/redes sociais,0.0,0.05833333333333329,0.6603333333333333,(nº docs com hit no léxico ~40 termos) / n_instances,0.09730644162043957
+profanity_token_rate,Domínio/redes sociais,0.0,0.00303851900931605,0.0640057361376673,(total tokens no léxico de profanidade) / total_tokens,0.09344207597690342
+pct_docs_with_mention,Domínio/redes sociais,0.0,0.0033333333333333,0.898,média de 1[regex @\w+ encontrado no doc],0.027759911168781883
+mean_hashtags_per_doc,Domínio/redes sociais,0.0,0.2463333333333333,1.0633333333333332,média da contagem de matches de #\w+ por doc,0.018742731228038767
+mean_mentions_per_doc,Domínio/redes sociais,0.0,0.0036666666666666,2.3186666666666667,média da contagem de matches de @\w+ por doc,0.017949339935491495
+pct_docs_with_hashtag,Domínio/redes sociais,0.0,0.11549999999999995,0.3053333333333333,média de 1[regex #\w+ encontrado],0.01343821421424249
+exclamation_rate,Domínio/redes sociais,0.0,0.2018333333333333,0.667,"média da contagem de ""!"" por doc",0.0128345784088286
+uppercase_char_ratio,Domínio/redes sociais,0.0,0.0402672490289444,0.1243070417450945,letras maiúsculas / total de letras,0.012019600460537929
+elongation_rate,Domínio/redes sociais,0.0,0.10233058519236984,0.2916666666666667,"média de 1[regex (.)\1{2,} encontrado] (ex: soooo)",0.011413514743064386
+pct_docs_with_emoji,Domínio/redes sociais,0.0,0.0003333333333333,0.2766666666666666,média de 1[regex de blocos unicode de emoji encontrado],0.011087644634931892
+pct_docs_with_url,Domínio/redes sociais,0.0,0.0008333333333333,0.3886666666666666,média de 1[regex https?://|www\. encontrado],0.008310201728609403
+centroid_cosine_gap,Sinal e dificuldade,0.0081511735916137,0.09413143992424006,0.4523016214370727,1 - média_pares(cosine(centróides de classe)) em espaço MiniLM,0.08286567048820917
+mean_mutual_info,Sinal e dificuldade,0.0019201154659103,0.0035924310013814003,0.0089689307553742,"média da MI(top-1000 termos TF-IDF; label), mutual_info_classif",0.049818278033250174
+max_mutual_info,Sinal e dificuldade,0.0162819523668051,0.040229513726086,0.1371639573047982,máximo da MI(top-1000 termos TF-IDF; label),0.025609068873135535
+knn1_disagreement,Sinal e dificuldade,0.0554272517321016,0.23649999999999996,0.5226666666666666,"média de 1[label(1-NN cosine, MiniLM) != label]",0.02277871382005226
+silhouette_by_label,Sinal e dificuldade,-0.0184473413974046,0.011535352561622799,0.0663897320628166,"silhouette_score(embeddings MiniLM, labels, metric=cosine)",0.019615100520619915
+is_multilingual_row,Derivada,0.0,0.0,1.0,1 se language != 'en' senão 0,0.06667305027831892
+is_english,Derivada,0.0,1.0,1.0,1 se language == 'en' senão 0,0.05425447277971831
+is_twitter,Derivada,0.0,1.0,1.0,1 se platform == 'twitter' senão 0,0.002860936360161317

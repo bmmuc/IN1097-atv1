@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+.overleaf_build/
+
+# Datasets e embeddings: regenerados por build_datasets.py e
+# hs_build_metadataset.py. Ver "Dados nao incluidos" no README.
+data_hs/datasets/
+data_hs/embeddings/
+
+# Helper especifico da maquina de desenvolvimento (nvidia-smi/sensors).
+tools/
+
+# Meta-dataset OpenML-CC18, usado apenas como contraste no relatorio.
+data/
+results/
+build_metadataset.py
+
+# Logs de execucao.
+*.log

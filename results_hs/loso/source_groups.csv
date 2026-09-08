@@ -1,0 +1,14 @@
+source_group,n_datasets
+ihc,16
+sbic+sbic_hf,7
+hateval,6
+ethos,5
+mlma,3
+measuring_hate_speech,2
+hatebr,2
+davidson,2
+hatexplain,2
+tweet_eval,2
+hatecheck,1
+hatewic,1
+toxic_conversations,1

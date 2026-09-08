@@ -1,0 +1,63 @@
+Friedman + Nemenyi post-hoc analysis
+============================================================
+k = 6 approaches, N = 50 datasets, alpha = 0.05
+HARRIS enters as ONE approach: selected lam = 0.5 (best mean Spearman = 0.8398 among {'Harris(lam=0.0)': np.float64(0.8303), 'Harris(lam=0.25)': np.float64(0.8344), 'Harris(lam=0.5)': np.float64(0.8398), 'Harris(lam=0.75)': np.float64(0.8393), 'Harris(lam=1.0)': np.float64(0.8368)})
+
+--- Metric: per-dataset Spearman correlation (higher = better) ---
+Friedman statistic = 34.5033, p-value = 1.89018e-06
+Nemenyi q_alpha(k=6, alpha=0.05) = 2.85
+CD = q_alpha * sqrt(k(k+1)/(6N)) = 1.0664
+Mean ranks (rank 1 = best):
+  RegressorOnR     2.780
+  RegressorOnP     2.880
+  Harris           3.090
+  AR               3.820
+  MR               3.980
+  SW               4.450
+Pairs with |mean rank diff| >= CD (significantly different):
+  MR vs RegressorOnP: diff = 1.100
+  MR vs RegressorOnR: diff = 1.200
+  SW vs RegressorOnP: diff = 1.570
+  SW vs RegressorOnR: diff = 1.670
+  SW vs Harris: diff = 1.360
+Pairs with |mean rank diff| < CD (NOT significantly different):
+  AR vs MR: diff = 0.160
+  AR vs SW: diff = 0.630
+  AR vs RegressorOnP: diff = 0.940
+  AR vs RegressorOnR: diff = 1.040
+  AR vs Harris: diff = 0.730
+  MR vs SW: diff = 0.470
+  MR vs Harris: diff = 0.890
+  RegressorOnP vs RegressorOnR: diff = 0.100
+  RegressorOnP vs Harris: diff = 0.210
+  RegressorOnR vs Harris: diff = 0.310
+
+--- Metric: per-dataset AUC_loss (mean loss over t=1..10, lower = better) ---
+Friedman statistic = 8.4161, p-value = 0.134747
+Nemenyi q_alpha(k=6, alpha=0.05) = 2.85
+CD = q_alpha * sqrt(k(k+1)/(6N)) = 1.0664
+Mean ranks (rank 1 = best, i.e. lowest AUC_loss):
+  Harris           3.220
+  RegressorOnR     3.260
+  RegressorOnP     3.440
+  MR               3.600
+  AR               3.640
+  SW               3.840
+Pairs with |mean rank diff| >= CD (significantly different):
+  (none)
+Pairs with |mean rank diff| < CD (NOT significantly different):
+  AR vs MR: diff = 0.040
+  AR vs SW: diff = 0.200
+  AR vs RegressorOnP: diff = 0.200
+  AR vs RegressorOnR: diff = 0.380
+  AR vs Harris: diff = 0.420
+  MR vs SW: diff = 0.240
+  MR vs RegressorOnP: diff = 0.160
+  MR vs RegressorOnR: diff = 0.340
+  MR vs Harris: diff = 0.380
+  SW vs RegressorOnP: diff = 0.400
+  SW vs RegressorOnR: diff = 0.580
+  SW vs Harris: diff = 0.620
+  RegressorOnP vs RegressorOnR: diff = 0.180
+  RegressorOnP vs Harris: diff = 0.220
+  RegressorOnR vs Harris: diff = 0.040

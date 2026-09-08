@@ -1,0 +1,72 @@
+Friedman + Nemenyi post-hoc analysis -- LEAVE-ONE-SOURCE-OUT (LOSO)
+======================================================================
+k = 6 approaches, N = 50 datasets, alpha = 0.05
+HARRIS fixed at lam = 0.5 (matches the existing LOO six-approach comparison)
+Source groups: 13 groups, sizes = {'ihc': 16, 'sbic+sbic_hf': 7, 'hateval': 6, 'ethos': 5, 'mlma': 3, 'measuring_hate_speech': 2, 'hatebr': 2, 'davidson': 2, 'hatexplain': 2, 'tweet_eval': 2, 'hatecheck': 1, 'hatewic': 1, 'toxic_conversations': 1}
+
+--- Metric: per-dataset Spearman correlation (higher = better) ---
+Friedman statistic = 23.1520, p-value = 0.000315705
+Nemenyi q_alpha(k=6, alpha=0.05) = 2.85
+CD = q_alpha * sqrt(k(k+1)/(6N)) = 1.0664
+Mean ranks (rank 1 = best):
+  RegressorOnP     2.800
+  Harris           2.960
+  RegressorOnR     3.370
+  MR               3.700
+  SW               3.990
+  AR               4.180
+Pairs with |mean rank diff| >= CD (significantly different):
+  AR vs RegressorOnP: diff = 1.380
+  AR vs Harris: diff = 1.220
+  SW vs RegressorOnP: diff = 1.190
+Pairs with |mean rank diff| < CD (NOT significantly different):
+  AR vs MR: diff = 0.480
+  AR vs SW: diff = 0.190
+  AR vs RegressorOnR: diff = 0.810
+  MR vs SW: diff = 0.290
+  MR vs RegressorOnP: diff = 0.900
+  MR vs RegressorOnR: diff = 0.330
+  MR vs Harris: diff = 0.740
+  SW vs RegressorOnR: diff = 0.620
+  SW vs Harris: diff = 1.030
+  RegressorOnP vs RegressorOnR: diff = 0.570
+  RegressorOnP vs Harris: diff = 0.160
+  RegressorOnR vs Harris: diff = 0.410
+
+--- Metric: per-dataset AUC_loss (mean loss over t=1..10, lower = better) ---
+Friedman statistic = 19.3037, p-value = 0.00168716
+Nemenyi q_alpha(k=6, alpha=0.05) = 2.85
+CD = q_alpha * sqrt(k(k+1)/(6N)) = 1.0664
+Mean ranks (rank 1 = best, i.e. lowest AUC_loss):
+  Harris           3.010
+  RegressorOnP     3.080
+  AR               3.500
+  SW               3.680
+  RegressorOnR     3.760
+  MR               3.970
+Pairs with |mean rank diff| >= CD (significantly different):
+  (none)
+Pairs with |mean rank diff| < CD (NOT significantly different):
+  AR vs MR: diff = 0.470
+  AR vs SW: diff = 0.180
+  AR vs RegressorOnP: diff = 0.420
+  AR vs RegressorOnR: diff = 0.260
+  AR vs Harris: diff = 0.490
+  MR vs SW: diff = 0.290
+  MR vs RegressorOnP: diff = 0.890
+  MR vs RegressorOnR: diff = 0.210
+  MR vs Harris: diff = 0.960
+  SW vs RegressorOnP: diff = 0.600
+  SW vs RegressorOnR: diff = 0.080
+  SW vs Harris: diff = 0.670
+  RegressorOnP vs RegressorOnR: diff = 0.680
+  RegressorOnP vs Harris: diff = 0.070
+  RegressorOnR vs Harris: diff = 0.750
+
+--- English (n=43) vs non-English (n=7) Spearman, LOSO ---
+  AR               en=0.8354  non-en=0.1169  drop=-0.7185
+  MR               en=0.8482  non-en=0.0901  drop=-0.7581
+  SW               en=0.8431  non-en=0.1117  drop=-0.7314
+  RegressorOnP     en=0.8774  non-en=0.3333  drop=-0.5440
+  RegressorOnR     en=0.8468  non-en=0.3680  drop=-0.4788
+  Harris           en=0.8593  non-en=0.4216  drop=-0.4377
